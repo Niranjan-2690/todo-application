@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function App(){ 
   
-  const [todoInput, setTodoInput] = useState([{title: "", description: "", status: "Not completed"}])
+  const [todoInput, setTodoInput] = useState({title: "", description: "", status: "Not completed"})
   const [todoData, setTodoData] = useState([])
   const [updateTodo, setUpdateTodo] = useState(false)
   const [filterStatus, setFilterStatus] = useState("All");
@@ -45,7 +45,7 @@ function App(){
 }
 
 // Handle status change for a specific todo
-function handleFilterStatusChange(e, id) {
+function handleFilterStatusChange(e, id = 0) {
   const updatedTodoStatus = todoData.map((item) =>
     item.id === id ? {...item, status: e.target.value} : item
   );
